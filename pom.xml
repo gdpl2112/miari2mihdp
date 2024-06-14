@@ -8,9 +8,20 @@
     <artifactId>miari2mihdp</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <repositories>
+        <repository>
+            <id>s01_snapshots</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>main</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <mirai-version>2.16.0</mirai-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
@@ -41,19 +52,25 @@
             <version>0.4.9-Beta</version>
         </dependency>
         <dependency>
-            <groupId>net.mamoe</groupId>
-            <artifactId>mirai-core-jvm</artifactId>
-            <version>2.16.0</version>
+            <groupId>top.mrxiaom</groupId>
+            <artifactId>overflow-core</artifactId>
+            <version>2.16.0-db61867-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>net.mamoe</groupId>
-            <artifactId>mirai-console</artifactId>
-            <version>2.16.0</version>
+            <artifactId>mirai-core-jvm</artifactId>
+            <version>${mirai-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.mamoe</groupId>
+                    <artifactId>mirai-core-jvm</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>net.mamoe</groupId>
             <artifactId>mirai-console-terminal</artifactId>
-            <version>2.16.0</version>
+            <version>${mirai-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.resolver</groupId>
